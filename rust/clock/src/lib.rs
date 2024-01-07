@@ -49,15 +49,22 @@ impl Clock<i32> {
 fn parse_time(hours: i32, minutes: i32) -> Vec<i32> {
     let mut new_hours = parse_hours(hours);
     let mut new_minutes = &minutes.abs() % 60;
+    let mut offset = 0;
     if minutes < 0 {
         new_minutes = 60 - new_minutes;
+        if new_minutes > 0 {
+            offset -= 1;
+        }
     }
     if new_minutes > 59 {
         new_minutes = new_minutes % 60;
+        if new_minutes == 0 {
+            offset += 1;
+        }
     }
 
-    let excess = minutes / 60; // This is a floor operation.
-    new_hours = parse_hours(new_hours + excess);
+    let excess = minutes / 60;
+    new_hours = parse_hours(new_hours + excess + offset);
 
     return vec![new_hours, new_minutes];
 }
