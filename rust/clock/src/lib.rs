@@ -30,13 +30,31 @@ impl<T: Display + Debug> PartialEq for Clock<T> {
 
 impl Clock<i32> {
     pub fn new(hours: i32, minutes: i32) -> Self {
-        Self { hours, minutes }
+        let time = parse_time(hours, minutes);
+        Self {
+            hours: time[0],
+            minutes: time[1],
+        }
     }
 
     pub fn add_minutes(&self, minutes: i32) -> Self {
+        let time = parse_time(self.hours, &self.minutes + minutes);
         Self {
-            hours: self.hours,
-            minutes: self.minutes + minutes,
+            hours: time[0],
+            minutes: time[1],
         }
     }
+}
+
+fn parse_time(hours: i32, minutes: i32) -> Vec<i32> {
+    let mut new_minutes: i32 = minutes;
+    let mut new_hours: i32 = hours;
+    if new_minutes > 59 {
+        new_hours = hours + (minutes / 60);
+        new_minutes = minutes % 60;
+    }
+    if new_hours > 23 {
+        new_hours = new_hours % 24;
+    }
+    return vec![new_hours, new_minutes];
 }
