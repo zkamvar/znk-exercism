@@ -1,34 +1,23 @@
-use core::cmp::Ordering;
 use core::fmt::Debug;
+use core::fmt::Formatter;
+use core::fmt::Result;
 use std::fmt::Display;
 
-#[derive(Debug)]
-pub struct Clock<T> {
-    hours: T,
-    minutes: T,
+#[derive(Debug, PartialOrd, PartialEq)]
+pub struct Clock {
+    hours: i32,
+    minutes: i32,
 }
 
-impl<T: Display> ToString for Clock<T> {
-    fn to_string(&self) -> String {
+impl Display for Clock {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
         let h = &self.hours;
         let m = &self.minutes;
-        format!("{h:02}:{m:02}")
+        write!(f, "{h:02}:{m:02}")
     }
 }
 
-impl<T: Display + Debug> PartialOrd for Clock<T> {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        self.to_string().partial_cmp(&other.to_string())
-    }
-}
-
-impl<T: Display + Debug> PartialEq for Clock<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.to_string() == other.to_string()
-    }
-}
-
-impl Clock<i32> {
+impl Clock {
     pub fn new(hours: i32, minutes: i32) -> Self {
         let time = parse_time(hours, minutes);
         Self {
