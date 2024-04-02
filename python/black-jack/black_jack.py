@@ -87,11 +87,7 @@ def is_blackjack(card_one, card_two):
     """
     vals = {value_of_card(card_one), value_of_card(card_two)}
 
-    if 'A' in {card_one, card_two} and 10 in vals:
-        natural = True
-    else:
-        natural = False
-    return natural
+    return 'A' in {card_one, card_two} and 10 in vals
 
 
 
@@ -103,11 +99,7 @@ def can_split_pairs(card_one, card_two):
     """
     v1 = value_of_card(card_one)
     v2 = value_of_card(card_two)
-    if v1 == v2:
-        pair = True
-    else:
-        pair = False
-    return pair
+    return v1 == v2
 
 
 def can_double_down(card_one, card_two):
@@ -118,9 +110,4 @@ def can_double_down(card_one, card_two):
     """
 
     val = value_of_card(card_one) + value_of_card(card_two)
-
-    if val in {9, 10, 11}:
-        trouble = True
-    else:
-        trouble = False
-    return trouble
+    return val in {9, 10, 11}
