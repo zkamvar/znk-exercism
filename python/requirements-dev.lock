@@ -8,6 +8,7 @@
 #   with-sources: false
 
 -e file:black-jack
+-e file:card-games
 -e file:little-sisters-vocab
 -e file:meltdown-mitigation
 -e file:.
