@@ -10,15 +10,19 @@
 -e file:black-jack
 -e file:card-games
 -e file:chaitanas-colossal-coaster
+-e file:.
 -e file:little-sisters-essay
 -e file:little-sisters-vocab
 -e file:meltdown-mitigation
--e file:.
 iniconfig==2.0.0
     # via pytest
 packaging==24.0
     # via pytest
+pathlib==1.0.1
+    # via expy
 pluggy==1.4.0
     # via pytest
 pytest==8.1.1
     # via meltdown-mitigation
+tomlkit==0.12.4
+    # via expy
