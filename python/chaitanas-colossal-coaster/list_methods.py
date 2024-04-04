@@ -10,8 +10,13 @@ def add_me_to_the_queue(express_queue, normal_queue, ticket_type, person_name):
     :param person_name: str - name of person to add to a queue.
     :return: list - the (updated) queue the name was added to.
     """
+    if ticket_type == 1:
+        queue = express_queue
+    else:
+        queue = normal_queue
+    queue.append(person_name)
+    return queue
 
-    pass
 
 
 def find_my_friend(queue, friend_name):
@@ -21,8 +26,8 @@ def find_my_friend(queue, friend_name):
     :param friend_name: str - name of friend to find.
     :return: int - index at which the friends name was found.
     """
+    return queue.index(friend_name)
 
-    pass
 
 
 def add_me_with_my_friends(queue, index, person_name):
@@ -33,8 +38,9 @@ def add_me_with_my_friends(queue, index, person_name):
     :param person_name: str - the name to add.
     :return: list - queue updated with new name.
     """
+    queue.insert(index, person_name)
+    return queue
 
-    pass
 
 
 def remove_the_mean_person(queue, person_name):
@@ -44,8 +50,9 @@ def remove_the_mean_person(queue, person_name):
     :param person_name: str - name of mean person.
     :return: list - queue update with the mean persons name removed.
     """
+    queue.remove(person_name)
+    return queue
 
-    pass
 
 
 def how_many_namefellows(queue, person_name):
@@ -55,8 +62,8 @@ def how_many_namefellows(queue, person_name):
     :param person_name: str - name you wish to count or track.
     :return: int - the number of times the name appears in the queue.
     """
+    return queue.count(person_name)
 
-    pass
 
 
 def remove_the_last_person(queue):
@@ -65,8 +72,8 @@ def remove_the_last_person(queue):
     :param queue: list - names in the queue.
     :return: str - name that has been removed from the end of the queue.
     """
+    return queue.pop()
 
-    pass
 
 
 def sorted_names(queue):
@@ -75,5 +82,4 @@ def sorted_names(queue):
     :param queue: list - names in the queue.
     :return: list - copy of the queue in alphabetical order.
     """
-
-    pass
+    return sorted(queue)
