@@ -13,6 +13,7 @@
 -e file:.
 -e file:little-sisters-essay
 -e file:little-sisters-vocab
+-e file:making-the-grade
 -e file:meltdown-mitigation
 iniconfig==2.0.0
     # via pytest

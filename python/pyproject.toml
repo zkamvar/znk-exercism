@@ -33,6 +33,7 @@ members = [
     "card-games",
     "little-sisters-essay",
     "chaitanas-colossal-coaster",
+    "making-the-grade",
 ]
 
 [tool.hatch.metadata]
