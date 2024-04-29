@@ -7,8 +7,7 @@ def get_coordinate(record):
     :param record: tuple - with a (treasure, coordinate) pair.
     :return: str - the extracted map coordinate.
     """
-
-    pass
+    return record[1]
 
 
 def convert_coordinate(coordinate):
@@ -17,8 +16,7 @@ def convert_coordinate(coordinate):
     :param coordinate: str - a string map coordinate
     :return: tuple - the string coordinate split into its individual components.
     """
-
-    pass
+    return tuple(coordinate)
 
 
 def compare_records(azara_record, rui_record):
@@ -29,7 +27,9 @@ def compare_records(azara_record, rui_record):
     :return: bool - do the coordinates match?
     """
 
-    pass
+    az = convert_coordinate(get_coordinate(azara_record))
+    ru = rui_record[1]
+    return az == ru
 
 
 def create_record(azara_record, rui_record):
@@ -39,8 +39,11 @@ def create_record(azara_record, rui_record):
     :param rui_record: tuple - a (location, coordinate, quadrant) trio.
     :return: tuple or str - the combined record (if compatible), or the string "not a match" (if incompatible).
     """
+    is_match = compare_records(azara_record, rui_record)
 
-    pass
+    if is_match:
+        return azara_record + rui_record
+    return "not a match"
 
 
 def clean_up(combined_record_group):
@@ -54,4 +57,8 @@ def clean_up(combined_record_group):
     (see HINTS.md for an example).
     """
 
-    pass
+    strang_thang = ""
+    for record in combined_record_group:
+        newple = record[0:1] + record[2:]
+        strang_thang +=f"{newple}\n"
+    return strang_thang
