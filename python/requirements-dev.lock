@@ -15,6 +15,7 @@
 -e file:little-sisters-vocab
 -e file:making-the-grade
 -e file:meltdown-mitigation
+-e file:tisbury-treasure-hunt
 iniconfig==2.0.0
     # via pytest
 packaging==24.0

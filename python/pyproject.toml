@@ -34,6 +34,7 @@ members = [
     "little-sisters-essay",
     "chaitanas-colossal-coaster",
     "making-the-grade",
+    "tisbury-treasure-hunt",
 ]
 
 [tool.hatch.metadata]
