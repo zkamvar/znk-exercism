@@ -36,10 +36,11 @@ def above_threshold(student_scores, threshold):
     :param threshold: int - threshold to cross to be the "best" score.
     :return: list - of integer scores that are at or above the "best" threshold.
     """
+    best = []
     for score in student_scores:
-        if score < threshold:
-            student_scores.remove(score)
-    return student_scores
+        if score >= threshold:
+            best.append(score)
+    return best
 
 
 def letter_grades(highest):
@@ -55,9 +56,9 @@ def letter_grades(highest):
             71 <= "B" <= 85
             86 <= "A" <= 100
     """
-    step = highest - 40
+    step = (highest - 40) // 4
     grades = []
-    for grade in range(40, highest, step):
+    for grade in range(40, highest - 1, step):
         grades.append(grade + 1)
     return grades
 
@@ -71,12 +72,12 @@ def student_ranking(student_scores, student_names):
     :return: list - of strings in format ["<rank>. <student name>: <score>"].
     """
 
-    ranks = []
+    # combine both lists, making sure scores is first for ranking
+    ranks = zip(student_scores, student_names)
     sorts = []
-    for i, _ in enumerate(student_names):
-        ranks.append((student_names[i], student_scores[i]))
-    for i, (name, score) in enumerate(sorted(ranks, key = lambda student: student[2])):
-        sorts.append(f"{i}. {name}: {score}")
+    # iterate and append to the sorts
+    for number, (score, name) in enumerate(sorted(ranks, reverse = True)):
+        sorts.append(f"{number + 1}. {name}: {score}")
     return sorts
 
 
@@ -92,4 +93,3 @@ def perfect_score(student_info):
             perfection = student
             break
     return perfection
-
