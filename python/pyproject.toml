@@ -35,6 +35,7 @@ members = [
     "chaitanas-colossal-coaster",
     "making-the-grade",
     "tisbury-treasure-hunt",
+    "inventory-management",
 ]
 
 [tool.hatch.metadata]

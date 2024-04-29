@@ -11,6 +11,7 @@
 -e file:card-games
 -e file:chaitanas-colossal-coaster
 -e file:.
+-e file:inventory-management
 -e file:little-sisters-essay
 -e file:little-sisters-vocab
 -e file:making-the-grade
