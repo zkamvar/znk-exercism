@@ -9,6 +9,7 @@
 
 -e file:black-jack
 -e file:card-games
+-e file:cater-waiter
 -e file:chaitanas-colossal-coaster
 -e file:.
 -e file:inventory-management

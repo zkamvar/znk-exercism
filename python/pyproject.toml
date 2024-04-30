@@ -36,6 +36,7 @@ members = [
     "making-the-grade",
     "tisbury-treasure-hunt",
     "inventory-management",
+    "cater-waiter",
 ]
 
 [tool.hatch.metadata]
