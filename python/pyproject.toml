@@ -37,6 +37,7 @@ members = [
     "tisbury-treasure-hunt",
     "inventory-management",
     "cater-waiter",
+    "ellens-alien-game",
 ]
 
 [tool.hatch.metadata]
